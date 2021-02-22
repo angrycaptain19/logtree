@@ -442,7 +442,7 @@ class LogTree:
                     else:
                         #if alt.key+delta < hi:
                         hi = min(hi, alt.key+delta)
-                elif alt.lt:
+                else:
                     if key < alt.key+delta:
                         #if alt.key+delta > lo:
                         hi = min(hi, alt.key+delta)
@@ -642,7 +642,7 @@ def main():
                     random.shuffle(xs)
                     ys = list(range(n))
                     random.shuffle(ys)
-                    zs = list(random.randrange(y+1) for y in range(n))
+                    zs = [random.randrange(y+1) for y in range(n)]
 
                 if case == 'appends':
                     tree = LogTree()
