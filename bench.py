@@ -20,9 +20,9 @@ def order_reversed(n, case='appends'):
 
 def order_random(n, case='appends'):
     if case == 'creates':
-        return list(random.randrange(x+1) for x in range(n))
+        return [random.randrange(x+1) for x in range(n)]
     elif case in {'deletes'}:
-        return list(random.randrange(x+1) for x in reversed(range(n)))
+        return [random.randrange(x+1) for x in reversed(range(n))]
     else:
         x = list(range(n))
         random.shuffle(x)
@@ -193,7 +193,7 @@ def main(case, order, path, N=10000, step=10):
                 heights = list(tree.heights())
 
                 for i in ORDERS[order](n):
-                    if tree.lookup(i) == None:
+                    if tree.lookup(i) is None:
                         print('failed %s + %s for n=%r, could not find %r' % (
                             case, order, n, i))
                         sys.exit(1)
